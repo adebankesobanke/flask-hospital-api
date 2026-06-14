@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -21,6 +21,31 @@ def get_patient(patient_id):
     for patient in patients:
         if patient["patient_id"] == patient_id:
             return jsonify(patient)
+
+    return {"error": "Patient not found"}, 404
+@app.route('/patients', methods=['POST'])
+def add_patient():
+    data = request.get_json()
+
+    if "name" not in data:
+        return {"error": "Patient name is required"}, 400
+
+    new_patient = {
+        "patient_id": len(patients) + 1,
+        "name": data["name"]
+    }
+
+    patients.append(new_patient)
+
+    return new_patient, 201
+
+@app.route('/patients/<int:patient_id>', methods=['DELETE'])
+def delete_patient(patient_id):
+
+    for patient in patients:
+        if patient["patient_id"] == patient_id:
+            patients.remove(patient)
+            return {"message": "Patient deleted successfully"}, 200
 
     return {"error": "Patient not found"}, 404
 
