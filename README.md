@@ -1,14 +1,18 @@
-# Hospital Flask API
+# Flask Hospital API
 
-A beginner REST API built with Python and Flask for managing hospital patient data.
+A RESTful API built with Python and Flask for managing hospital patient records. This project demonstrates API development fundamentals including CRUD operations, JSON responses, HTTP status codes, route parameters, and error handling.
 
 ## Features
 
+* Create a patient record
 * Retrieve all patients
 * Retrieve a specific patient by ID
-* Return JSON responses
+* Update an existing patient
+* Delete a patient
+* JSON request and response handling
 * Dynamic route parameters
-* Basic error handling with HTTP 404 responses
+* HTTP status code handling
+* Basic error handling
 
 ## Technologies Used
 
@@ -16,6 +20,8 @@ A beginner REST API built with Python and Flask for managing hospital patient da
 * Flask
 * JSON
 * REST APIs
+* Git
+* GitHub
 
 ## Installation
 
@@ -26,7 +32,7 @@ git clone <repository-url>
 cd flask-hospital-api
 ```
 
-### Create a virtual environment
+### Create and activate a virtual environment
 
 ```bash
 python -m venv venv
@@ -53,31 +59,18 @@ http://127.0.0.1:5000
 
 ## API Endpoints
 
-### Home Endpoint
+| Method | Endpoint       | Description                |
+| ------ | -------------- | -------------------------- |
+| GET    | /              | Health check               |
+| GET    | /patients      | Retrieve all patients      |
+| GET    | /patients/<id> | Retrieve a patient by ID   |
+| POST   | /patients      | Create a new patient       |
+| PUT    | /patients/<id> | Update an existing patient |
+| DELETE | /patients/<id> | Delete a patient           |
 
-```http
-GET /
-```
+## Example Responses
 
-Response:
-
-```text
-Hospital API is running!
-```
-
-### Get All Patients
-
-```http
-GET /patients
-```
-
-### Get Patient By ID
-
-```http
-GET /patients/2
-```
-
-Example Response:
+### Get Patient
 
 ```json
 {
@@ -86,13 +79,7 @@ Example Response:
 }
 ```
 
-### Error Handling
-
-```http
-GET /patients/99
-```
-
-Response:
+### Patient Not Found
 
 ```json
 {
@@ -109,7 +96,20 @@ Status Code:
 ## Future Improvements
 
 * PostgreSQL integration
-* CRUD operations
-* Appointment management
+* SQLAlchemy ORM integration
+* Appointment management endpoints
 * Docker containerization
 * Authentication and authorization
+* Unit and integration testing
+
+## Learning Outcomes
+
+This project demonstrates:
+
+* REST API design principles
+* CRUD operations
+* HTTP methods (GET, POST, PUT, DELETE)
+* HTTP status codes
+* JSON data handling
+* Git and GitHub workflow
+* Flask application development
