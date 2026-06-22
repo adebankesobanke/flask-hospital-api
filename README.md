@@ -1,115 +1,78 @@
-# Flask Hospital API
+📌 Hospital Patient Management API
 
-A RESTful API built with Python and Flask for managing hospital patient records. This project demonstrates API development fundamentals including CRUD operations, JSON responses, HTTP status codes, route parameters, and error handling.
+A RESTful backend API built with Flask and PostgreSQL for managing hospital patient records stored in a structured database schema.
 
-## Features
+This project demonstrates backend development skills including API design, database integration, and real-world debugging using SQLAlchemy ORM.
 
-* Create a patient record
-* Retrieve all patients
-* Retrieve a specific patient by ID
-* Update an existing patient
-* Delete a patient
-* JSON request and response handling
-* Dynamic route parameters
-* HTTP status code handling
-* Basic error handling
+🚀 Features
+Retrieve all patients (GET /patients)
+Retrieve individual patient (GET /patients/<id>)
+PostgreSQL database integration
+Schema-based data modeling (analytics.patients)
+SQLAlchemy ORM for database interaction
+Real-time API testing using curl
+Debugging of database and schema mismatches
+🛠 Tech Stack
+Python
+Flask
+Flask-SQLAlchemy
+PostgreSQL
+psycopg2
+🧱 Project Structure
+flask-hospital-api/
+│
+├── app.py              # Main Flask application
+├── config.py           # Database configuration
+├── models.py           # SQLAlchemy models
+├── requirements.txt    # Dependencies
+└── README.md
+🗄 Database Schema
 
-## Technologies Used
+The project uses a PostgreSQL database:
 
-* Python
-* Flask
-* JSON
-* REST APIs
-* Git
-* GitHub
+Database: hospitaldb
+Schema: analytics
+Table: patients
+📡 API Endpoints
+🔹 Get all patients
+GET /patients
+🔹 Get patient by ID
+GET /patients/<patient_id>
 
-## Installation
-
-### Clone the repository
-
-```bash
-git clone <repository-url>
+⚙️ Setup Instructions
+1. Clone repository
+git clone <your-repo-link>
 cd flask-hospital-api
-```
-
-### Create and activate a virtual environment
-
-```bash
-python -m venv venv
-source venv/Scripts/activate
-```
-
-### Install dependencies
-
-```bash
+2. Install dependencies
 pip install -r requirements.txt
-```
-
-### Run the application
-
-```bash
+3. Run the application
 python app.py
-```
+4. Test API
+curl http://127.0.0.1:5000/patients
+🧠 Key Learning Outcomes
 
-The application will run at:
+This project helped me gain hands-on experience in:
 
-```text
-http://127.0.0.1:5000
-```
+Building RESTful APIs with Flask
+Working with PostgreSQL databases
+Using SQLAlchemy ORM for database queries
+Handling schema-based database structures
+Debugging backend and database integration issues
+Testing APIs using curl
 
-## API Endpoints
+⚠️ Challenges Solved
+Fixed database schema mismatch (analytics.patients)
+Resolved SQLAlchemy query issues
+Debugged Flask runtime errors (IndentationError, NameError)
+Handled API routing and request validation issues
+Improved understanding of backend architecture
 
-| Method | Endpoint       | Description                |
-| ------ | -------------- | -------------------------- |
-| GET    | /              | Health check               |
-| GET    | /patients      | Retrieve all patients      |
-| GET    | /patients/<id> | Retrieve a patient by ID   |
-| POST   | /patients      | Create a new patient       |
-| PUT    | /patients/<id> | Update an existing patient |
-| DELETE | /patients/<id> | Delete a patient           |
+📈 Future Improvements
+Add POST endpoint for creating patients
+Add PUT endpoint for updating patient records
+Add DELETE endpoint for removing records
+Add input validation and error handling
+Modularize code into blueprints (routes/models separation)
+👤 Author
 
-## Example Responses
-
-### Get Patient
-
-```json
-{
-  "patient_id": 2,
-  "name": "Jane Smith"
-}
-```
-
-### Patient Not Found
-
-```json
-{
-  "error": "Patient not found"
-}
-```
-
-Status Code:
-
-```text
-404 Not Found
-```
-
-## Future Improvements
-
-* PostgreSQL integration
-* SQLAlchemy ORM integration
-* Appointment management endpoints
-* Docker containerization
-* Authentication and authorization
-* Unit and integration testing
-
-## Learning Outcomes
-
-This project demonstrates:
-
-* REST API design principles
-* CRUD operations
-* HTTP methods (GET, POST, PUT, DELETE)
-* HTTP status codes
-* JSON data handling
-* Git and GitHub workflow
-* Flask application development
+Aspiring Data Engineer (Nigeria)
